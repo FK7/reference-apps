@@ -8,7 +8,7 @@ case class ApacheAccessLog(ipAddress: String, clientIdentd: String,
 }
 
 object ApacheAccessLog {
-  val PATTERN = """^(\S+) (\S+) (\S+) \[([\w:/]+\s[+\-]\d{4})\] "(\S+) (\S+) (\S+)" (\d{3}) (\d+)""".r
+  val PATTERN = """^(\S+) (\S+) (\S+) \[([^]+)([^\]]+)\] "(\S+) (\S+) (\S+)" (\d{3}) (\d+)""".r
 
   def parseLogLine(log: String): ApacheAccessLog = {
     val res = PATTERN.findFirstMatchIn(log)
